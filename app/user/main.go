@@ -8,10 +8,10 @@ import (
 	"github.com/cloudwego/kitex/pkg/rpcinfo"
 	"github.com/cloudwego/kitex/server"
 	kitexlogrus "github.com/kitex-contrib/obs-opentelemetry/logging/logrus"
+	"github.com/puzzlehh/kill_system/app/user/conf"
+	"github.com/puzzlehh/kill_system/rpc_gen/kitex_gen/user/userservice"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
-	"kill_system/app/user/conf"
-	"kill_system/rpc_gen/kitex_gen/user/userservice"
 )
 
 func main() {

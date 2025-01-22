@@ -3,8 +3,8 @@ package redis
 import (
 	"context"
 
+	"github.com/puzzlehh/kill_system/app/user/conf"
 	"github.com/redis/go-redis/v9"
-	"kill_system/app/user/conf"
 )
 
 var (

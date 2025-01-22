@@ -2,7 +2,7 @@ package service
 
 import (
 	"context"
-	user "kill_system/rpc_gen/kitex_gen/user"
+	user "github.com/puzzlehh/kill_system/rpc_gen/kitex_gen/user"
 )
 
 type RegisterService struct {

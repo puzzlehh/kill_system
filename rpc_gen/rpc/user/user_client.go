@@ -2,11 +2,10 @@ package user
 
 import (
 	"context"
-	user "kill_system/rpc_gen/kitex_gen/user"
+	user "github.com/puzzlehh/kill_system/rpc_gen/kitex_gen/user"
 
 	"github.com/cloudwego/kitex/client"
 	"github.com/cloudwego/kitex/client/callopt"
-	
 )
 
 type RPCClient interface {

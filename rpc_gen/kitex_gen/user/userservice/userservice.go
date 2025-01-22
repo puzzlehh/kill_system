@@ -8,8 +8,8 @@ import (
 	client "github.com/cloudwego/kitex/client"
 	kitex "github.com/cloudwego/kitex/pkg/serviceinfo"
 	streaming "github.com/cloudwego/kitex/pkg/streaming"
+	user "github.com/puzzlehh/kill_system/rpc_gen/kitex_gen/user"
 	proto "google.golang.org/protobuf/proto"
-	user "kill_system/rpc_gen/kitex_gen/user"
 )
 
 var errInvalidMessageType = errors.New("invalid message type for service method handler")

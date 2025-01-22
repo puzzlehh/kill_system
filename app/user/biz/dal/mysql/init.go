@@ -1,7 +1,7 @@
 package mysql
 
 import (
-	"kill_system/app/user/conf"
+	"github.com/puzzlehh/kill_system/app/user/conf"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

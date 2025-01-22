@@ -1,4 +1,4 @@
-module kill_system/app/user
+module github.com/puzzlehh/kill_system/app/user
 
 go 1.23.4
 

@@ -2,8 +2,7 @@ package main
 
 import (
 	"context"
-	"kill_system/app/user/biz/service"
-	
+	"github.com/puzzlehh/kill_system/app/user/biz/service"
 )
 
 // UserServiceImpl implements the last service interface defined in the IDL.

@@ -1,8 +1,8 @@
 package dal
 
 import (
-	"kill_system/app/user/biz/dal/mysql"
-	"kill_system/app/user/biz/dal/redis"
+	"github.com/puzzlehh/kill_system/app/user/biz/dal/mysql"
+	"github.com/puzzlehh/kill_system/app/user/biz/dal/redis"
 )
 
 func Init() {

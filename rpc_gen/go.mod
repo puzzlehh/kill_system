@@ -1,4 +1,4 @@
-module kill_system/rpc_gen
+module github.com/puzzlehh/kill_system/rpc_gen
 
 go 1.23.4
 
