@@ -2,6 +2,7 @@ go 1.23.4
 
 use (
 	./app/user
+	./app/auth
 	rpc_gen
 )
 

@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"github.com/puzzlehh/kill_system/app/user/biz/service"
+	"github.com/puzzlehh/kill_system/rpc_gen/kitex_gen/user"
 )
 
 // UserServiceImpl implements the last service interface defined in the IDL.
