@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"github.com/puzzlehh/kill_system/app/auth/biz/service"
-	
+	"github.com/puzzlehh/kill_system/rpc_gen/kitex_gen/auth"
 )
 
 // AuthServiceImpl implements the last service interface defined in the IDL.

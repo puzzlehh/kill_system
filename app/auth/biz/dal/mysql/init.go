@@ -2,7 +2,6 @@ package mysql
 
 import (
 	"github.com/puzzlehh/kill_system/app/auth/conf"
-
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -19,6 +18,7 @@ func Init() {
 			SkipDefaultTransaction: true,
 		},
 	)
+
 	if err != nil {
 		panic(err)
 	}

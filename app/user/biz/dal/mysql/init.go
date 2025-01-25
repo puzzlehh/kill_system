@@ -1,6 +1,7 @@
 package mysql
 
 import (
+	"github.com/puzzlehh/kill_system/app/user/biz/model"
 	"github.com/puzzlehh/kill_system/app/user/conf"
 
 	"gorm.io/driver/mysql"
@@ -19,6 +20,8 @@ func Init() {
 			SkipDefaultTransaction: true,
 		},
 	)
+	// 自动迁移
+	DB.AutoMigrate(&model.User{})
 	if err != nil {
 		panic(err)
 	}

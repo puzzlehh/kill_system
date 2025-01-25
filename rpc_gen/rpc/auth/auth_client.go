@@ -3,10 +3,10 @@ package auth
 import (
 	"context"
 	auth "github.com/puzzlehh/kill_system/rpc_gen/kitex_gen/auth"
+	"github.com/puzzlehh/kill_system/rpc_gen/kitex_gen/auth/authservice"
 
 	"github.com/cloudwego/kitex/client"
 	"github.com/cloudwego/kitex/client/callopt"
-	
 )
 
 type RPCClient interface {

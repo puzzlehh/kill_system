@@ -1,6 +1,10 @@
 package main
 
 import (
+	consul "github.com/kitex-contrib/registry-consul"
+	"github.com/puzzlehh/kill_system/app/user/biz/dal"
+	"github.com/puzzlehh/kill_system/app/user/infra/rpc"
+	"log"
 	"net"
 	"time"
 
@@ -16,6 +20,9 @@ import (
 
 func main() {
 	opts := kitexInit()
+	dal.Init()
+	klog.Info("servicename :" + conf.GetConf().Kitex.Service)
+	rpc.InitClient()
 
 	svr := userservice.NewServer(new(UserServiceImpl), opts...)
 
@@ -23,6 +30,7 @@ func main() {
 	if err != nil {
 		klog.Error(err.Error())
 	}
+
 }
 
 func kitexInit() (opts []server.Option) {
@@ -32,6 +40,13 @@ func kitexInit() (opts []server.Option) {
 		panic(err)
 	}
 	opts = append(opts, server.WithServiceAddr(addr))
+
+	//增加注册中心
+	r, err := consul.NewConsulRegister(conf.GetConf().Registry.RegistryAddress[0])
+	if err != nil {
+		log.Fatal(err)
+	}
+	opts = append(opts, server.WithRegistry(r))
 
 	// service info
 	opts = append(opts, server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{

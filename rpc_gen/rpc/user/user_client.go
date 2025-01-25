@@ -3,6 +3,7 @@ package user
 import (
 	"context"
 	user "github.com/puzzlehh/kill_system/rpc_gen/kitex_gen/user"
+	"github.com/puzzlehh/kill_system/rpc_gen/kitex_gen/user/userservice"
 
 	"github.com/cloudwego/kitex/client"
 	"github.com/cloudwego/kitex/client/callopt"

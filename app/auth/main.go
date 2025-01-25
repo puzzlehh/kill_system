@@ -1,6 +1,8 @@
 package main
 
 import (
+	consul "github.com/kitex-contrib/registry-consul"
+	"log"
 	"net"
 	"time"
 
@@ -16,7 +18,6 @@ import (
 
 func main() {
 	opts := kitexInit()
-
 	svr := authservice.NewServer(new(AuthServiceImpl), opts...)
 
 	err := svr.Run()
@@ -32,6 +33,12 @@ func kitexInit() (opts []server.Option) {
 		panic(err)
 	}
 	opts = append(opts, server.WithServiceAddr(addr))
+
+	r, err := consul.NewConsulRegister("10.21.32.14:8500")
+	if err != nil {
+		log.Fatal(err)
+	}
+	opts = append(opts, server.WithRegistry(r))
 
 	// service info
 	opts = append(opts, server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{

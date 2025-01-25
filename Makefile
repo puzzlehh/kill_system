@@ -15,3 +15,7 @@ gen-server: ## gen service code of {svc}. example: make gen-server svc=product ä
 .PHONY: gen-model
 gen-model: ## Generate model code with CRUD operations. Example: make gen-model svc=user
 	@cd app/${svc} && cwgo model c ../../idl --idl ../../idl/${svc}.proto
+
+.PHONY: tidy
+tidy:
+	@cd app/${svc} && go mod tidy

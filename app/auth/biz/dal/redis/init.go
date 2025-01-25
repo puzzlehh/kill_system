@@ -2,9 +2,9 @@ package redis
 
 import (
 	"context"
+	"github.com/redis/go-redis/v9"
 
 	"github.com/puzzlehh/kill_system/app/auth/conf"
-	
 )
 
 var (
