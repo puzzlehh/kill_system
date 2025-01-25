@@ -6,6 +6,7 @@ import (
 	"github.com/puzzlehh/kill_system/app/user/infra/rpc"
 	"github.com/puzzlehh/kill_system/rpc_gen/kitex_gen/auth"
 	user "github.com/puzzlehh/kill_system/rpc_gen/kitex_gen/user"
+	"strconv"
 )
 
 // 这里是干啥的
@@ -38,10 +39,6 @@ func (s *LoginService) Run(req *user.LoginReq) (resp *user.LoginResp, err error)
 	//	return
 	//}
 
-	resp = &user.LoginResp{
-		UserId: 1,
-	}
-
 	//可以抽离
 	result, err := rpc.AuthClient.DeliverTokenByRPC(s.ctx, &auth.DeliverTokenReq{})
 	if err != nil {
@@ -49,6 +46,11 @@ func (s *LoginService) Run(req *user.LoginReq) (resp *user.LoginResp, err error)
 		return nil, err
 	}
 	klog.Infof("result:%+v", result)
+
+	v, _ := strconv.Atoi(result.Token)
+	resp = &user.LoginResp{
+		UserId: int32(v),
+	}
 
 	return resp, nil
 }

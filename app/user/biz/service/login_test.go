@@ -2,7 +2,11 @@ package service
 
 import (
 	"context"
-	user "github.com/puzzlehh/kill_system/rpc_gen/kitex_gen/user"
+	"github.com/cloudwego/kitex/client"
+	consul "github.com/kitex-contrib/registry-consul"
+	"github.com/puzzlehh/kill_system/rpc_gen/kitex_gen/user"
+	userRpc "github.com/puzzlehh/kill_system/rpc_gen/rpc/user"
+
 	"testing"
 )
 
@@ -10,15 +14,16 @@ import (
 func TestLogin_Run(t *testing.T) {
 	// 这个ctx是空白的吗？
 	ctx := context.Background()
-	s := NewLoginService(ctx)
 	// init req and assert value
+	r, err := consul.NewConsulResolver("10.21.32.14:8500")
+	c, err := userRpc.NewRPCClient("user", client.WithResolver(r))
 
 	req := &user.LoginReq{
 		Email:    "123",
 		Password: "test",
 	}
 
-	resp, err := s.Run(req)
+	resp, err := c.Login(ctx, req)
 	t.Logf("err: %v", err)
 	t.Logf("resp: %v", resp)
 
