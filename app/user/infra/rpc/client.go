@@ -25,7 +25,8 @@ func InitClient() {
 			CurrentServiceName: serviceName,
 			RegistryAddr:       registryAddr,
 		})
-		initClient("auth")
+		// 这里为啥读取配置文件会读错
+		initClient("AuthService")
 	})
 }
 
